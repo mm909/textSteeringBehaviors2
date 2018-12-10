@@ -69,7 +69,7 @@ let index = 0;
 
 function draw() {
   colorMode(RGB)
-  background(51, 80);
+  background(51, 100);
   for (var i = 0; i < vehicles.length; i++) {
     var v = vehicles[i];
     v.behaviors();

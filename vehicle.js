@@ -33,16 +33,25 @@ Vehicle.prototype.update = function() {
   this.acc.mult(0);
 }
 
+let maxh = 0;
+let minh = 1;
 Vehicle.prototype.show = function() {
   colorMode(HSB)
-  noiseDetail(5, 0.65);
-  this.start += random(0.015)
-  this.h = noise(this.start) * 255;
+  noiseDetail(20, 0.65);
+  this.start += random(0.005)
+  this.h = noise(this.start);
+  if (this.h > maxh) maxh = this.h
+  if (this.h < minh) minh = this.h
+  this.h = map(this.h, minh, maxh, 0, 255)
   stroke(this.h, 100, 100)
   strokeWeight(this.r);
   point(this.pos.x, this.pos.y);
 }
 
+function showMinMax() {
+  console.log(maxh);
+  console.log(minh);
+}
 
 Vehicle.prototype.arrive = function(target) {
   var desired = p5.Vector.sub(target, this.pos);
