@@ -90,8 +90,8 @@ function next() {
   }
 
   if (words[index % words.length].length < words[(index - 1) % words.length].length) {
-    console.log(words[index % words.length].length);
-    console.log(words[(index - 1) % words.length].length);
+    // console.log(words[index % words.length].length);
+    // console.log(words[(index - 1) % words.length].length);
     for (var i = words[index % words.length].length; i < words[(index - 1) % words.length].length; i++) {
       vehicles[i].target.x = random(width)
       vehicles[i].target.y = random(500 + 100, height - 25)
